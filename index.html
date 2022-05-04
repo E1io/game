@@ -21,7 +21,7 @@
 
     <style>
     canvas {
-        border: 1px solid black;
+        border: 1px solid blueviolet;
         display: inline-block;
         vertical-align: top;
     }
@@ -84,7 +84,7 @@
     var scoreText;
     var leftText;
 
-    var background = new WebImage("https://static.codehs.com/img/library/landscapes/flowers.jpg");
+    var background = new WebImage("https://images.unsplash.com/photo-1573767291321-c0af2eaf5266?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=536&q=80");
 
 function start() {
     if (ColorRandom == Color.red) {
@@ -102,7 +102,7 @@ function start() {
     } else {
         ghostPrice = 10;
     }
-    background.setSize(640, 450);
+    background.setSize(400, 500);
     background.setPosition(0, 0);
     add(background);
     setup();
@@ -121,7 +121,7 @@ function setup() {
     add(line2);
     
     var text = new Text("FOR QUIT - PRESS SPACE");
-    text.setColor(Color.black);
+    text.setColor(Color.white);
     text.setPosition(getWidth() / 2 - text.getWidth() /3, getHeight() - 5);
     text.setFont("12pt Arial");
     add(text);
@@ -335,7 +335,7 @@ function gameReset() {
 
 function showMessage(txt) {
     var text = new Text(txt);
-    text.setColor(Color.black);
+    text.setColor(Color.white);
     text.setPosition(getWidth() / 2 - 2 * text.getWidth()/ 3, getHeight() / 2);
     text.setFont("26pt Arial");
     add(text);
@@ -343,7 +343,7 @@ function showMessage(txt) {
 
 function showMessage2(txt) {
     var text = new Text(txt);
-    text.setColor(Color.black);
+    text.setColor(Color.white);
     text.setPosition(getWidth() / 2 - 2 * text.getWidth()/ 3, getHeight() / 2 + 50);
     text.setFont("26pt Arial");
     add(text);
@@ -362,7 +362,7 @@ function showLeft() {
     remove(leftText);
     leftText = new Text(ballsLeft);
     leftText.setFont("16pt Arial");
-    leftText.setColor(Color.black);
+    leftText.setColor(Color.white);
     leftText.setPosition(10, getHeight() - 5);
     add(leftText);
 }

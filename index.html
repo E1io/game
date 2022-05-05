@@ -106,6 +106,10 @@ function start() {
     background.setPosition(0, 0);
     add(background);
     setup();
+
+    var bottomBox = new Rectangle(400, 10);
+    bottomBox.setColor(Color.black);
+    bottomBox.setPosition(0,490);
     
     keyDownMethod(keyDown);
     mouseMoveMethod(mouseMove);

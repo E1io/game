@@ -13,14 +13,12 @@
 <body>
 
   <div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'Resources')">Resources</button>
     <button class="tablinks" onclick="openCity(event, 'Upgrades')">Upgrades</button>
-    <button class="tablinks" onclick="openCity(event, 'Extras')">Extras</button>
+    <button class="tablinks" onclick="openCity(event, 'Housing')">Housing</button>
+    <button class="tablinks" onclick="openCity(event, 'Workers')">Workers</button>
+    <button class="tablinks" onclick="openCity(event, 'Settings')">Settings</button>
   </div>
-
-  <br>
-
-  <div id="Resources" class="tabcontent">
+  <div class="tab">
     <div class="row">
       <div class="col-xs-4">
         <button type="button" id="chopWood" class="btn btn-primary btn-block">Chop Wood</button>
@@ -36,7 +34,7 @@
         </span>
       </div>
     </div>
-
+    
     <div class="row">
       <div class="col-xs-4">
         <button type="button" id="mineStone" class="btn btn-primary btn-block">Mine Stone</button>
@@ -52,7 +50,7 @@
         </span>
       </div>
     </div>
-
+    
     <div class="row">
       <div class="col-xs-4">
         <button type="button" id="gatherFood" class="btn btn-primary btn-block">Gather Food</button>
@@ -68,10 +66,222 @@
         </span>
       </div>
     </div>
+  </div>
 
-    <br>
-    <br>
+  <br>
+  <div id="Settings" class="tabcontent">
+    <button type="button1" onclick="save()">
+      Manually save the game (autosaves every 20 seconds or after you do something important)
+    </button>
+    <button type="button1" onclick="wipe(true)">
+      Delete save file and hard reset (Don't press this!)
+    </button>
+  </div>
 
+  <div id="Upgrades" class="tabcontent">
+    <div class="col-md-6">
+
+      <div class="row upgradeTwoFingers">
+        <div class="col-xs-4">
+          <button type="button" id="upgradeTwoFingers" class="btn btn-warning btn-block">Two Fingers</button>
+        </div>
+        <div class="col-xs-8">
+          <h6>-100 Wood | -100 Stone | -100 Food</h6>
+          <h6>Two resources per click.</h6>
+        </div>
+      </div>
+      <!--.row-->
+
+      <div class="row upgradeFiveFingers hidden">
+        <div class="col-xs-4">
+          <button type="button" id="upgradeFiveFingers" class="btn btn-warning btn-block">Five Fingers</button>
+        </div>
+        <div class="col-xs-8">
+          <h6>-450 Wood | -450 Stone | -120 Food</h6>
+          <h6>Five resources per click.</h6>
+        </div>
+      </div>
+      <!--.row-->
+
+      <div class="row upgradeDoubleSleepingBags">
+        <div class="col-xs-4">
+          <button type="button" id="upgradeDoubleSleepingBags" class="btn btn-warning btn-block">Double Sleeping
+            Bags</button>
+        </div>
+        <div class="col-xs-8">
+          <h6>-100 Wood | -100 Stone | -100 Food</h6>
+          <h6>Allow two people to live in one tent.</h6>
+        </div>
+      </div>
+
+      <div class="row upgradeBunkBeds">
+        <div class="col-xs-4">
+          <button type="button" id="upgradeBunkBeds" class="btn btn-warning btn-block">Bunk Beds</button>
+        </div>
+        <div class="col-xs-8">
+          <h6>-100 Wood | -100 Stone | -100 Food</h6>
+          <h6>Allow five people to live in one house.</h6>
+        </div>
+      </div>
+
+      <div class="row upgradeSharpenAxes">
+        <div class="col-xs-4">
+          <button type="button" id="upgradeSharpenAxes" class="btn btn-warning btn-block">Sharpen Axes</button>
+        </div>
+        <div class="col-xs-8">
+          <h6>-50 Wood | -100 Stone | -50 Food</h6>
+          <h6>Lumberjacks gather two wood every five seconds.</h6>
+        </div>
+      </div>
+
+      <div class="row upgradeSharpenPicks">
+        <div class="col-xs-4">
+          <button type="button" id="upgradeSharpenPicks" class="btn btn-warning btn-block">Sharpen Picks</button>
+        </div>
+        <div class="col-xs-8">
+          <h6>-50 Wood | -100 Stone | -50 Food</h6>
+          <h6>Miners gather two stone every five seconds.</h6>
+        </div>
+      </div>
+
+      <div class="row upgradeSharpenArrows">
+        <div class="col-xs-4">
+          <button type="button" id="upgradeSharpenArrows" class="btn btn-warning btn-block">Sharpen Arrows</button>
+        </div>
+        <div class="col-xs-8">
+          <h6>-50 Wood | -100 Stone | -50 Food</h6>
+          <h6>Hunters gather two food every five seconds.</h6>
+        </div>
+      </div>
+
+      <div class="row upgradeMatesRatesWood">
+        <div class="col-xs-4">
+          <button type="button" id="upgradeMatesRatesWood" class="btn btn-warning btn-block">Mates Rates -
+            Wood</button>
+        </div>
+        <div class="col-xs-8">
+          <h6>-150 Stone | -50 Food</h6>
+          <h6>Befriend the lumberjacks so houses and tents cost less wood.</h6>
+        </div>
+      </div>
+
+      <div class="row upgradeMatesRatesStone">
+        <div class="col-xs-4">
+          <button type="button" id="upgradeMatesRatesStone" class="btn btn-warning btn-block">Mates Rates -
+            Stone</button>
+        </div>
+        <div class="col-xs-8">
+          <h6>-150 Wood | -50 Food</h6>
+          <h6>Befriend the miners so houses cost less stone.</h6>
+        </div>
+      </div>
+
+      <hr>
+    </div>
+  </div>
+
+  <div id="Housing" class="tabcontent">
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="row">
+          <div class="col-xs-4">
+            <button type="button" id="buildTent" class="btn btn-danger btn-block">Build Tent</button>
+          </div>
+
+          <div class="col-xs-4">
+            <button type="button" id="tentAmount" class="btn btn-default btn-block disabled">0</button>
+          </div>
+
+          <div class="col-xs-4">
+            <h6>-<span id="tentCostWood">0</span> Wood</h6>
+            <h6>+<span id="tentResidents">0</span> Population</h6>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-4">
+            <button type="button" id="buildHouse" class="btn btn-danger btn-block">Build House</button>
+          </div>
+          <div class="col-xs-4">
+            <button type="button" id="houseAmount" class="btn btn-default btn-block disabled">0</button>
+          </div>
+          <div class="col-xs-4">
+            <h6>-<span id="houseCostWood">0</span> Wood | -<span id="houseCostStone">0</span> Stone</h6>
+            <h6>+<span id="houseResidents">0</span> Population</h6>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-xs-4">
+            <button id="researchHostel" class="btn btn-danger btn-block">Consider Building Hostels</button>
+            <div class="progress-wrap-hostel progress hidden" data-progress-percent-hostel="100">
+              <span class="researchingComment">Thinking About It</span>
+              <div class="progress-bar-hostel progress"></div>
+            </div>
+            <button id="buildHostel" class="btn btn-danger btn-block hidden">Build Hostel</button>
+          </div>
+
+          <div class="col-xs-4">
+            <button type="button" id="hostelAmount" class="btn btn-default btn-block disabled">0</button>
+          </div>
+          <div class="col-xs-4">
+            <h6 class="hostelInfo hidden">-<span id="hostelCostWood">0</span> Wood | -<span
+                id="hostelCostStone">0</span>
+              Stone</h6>
+            <h6 class="hostelResearchInfo">-400 Wood | -150 Stone</h6>
+            <h6>+<span id="hostelResidents">0</span> Population</h6>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-4">
+            <button type="button" id="buildWoodStorage" class="btn btn-danger btn-block">Build Wood Storage</button>
+          </div>
+          <div class="col-xs-4">
+            <button type="button" id="woodStorageAmount" class="btn btn-default btn-block disabled">0</button>
+          </div>
+          <div class="col-xs-4">
+            <h6>-<span id="woodStorageCostWood">0</span> Wood | -<span id="woodStorageCostStone">0</span> Stone</h6>
+            <h6>+100 Wood Storage</h6>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-4">
+            <button type="button" id="buildStoneStorage" class="btn btn-danger btn-block">Build Stone
+              Storage</button>
+          </div>
+          <div class="col-xs-4">
+            <button type="button" id="stoneStorageAmount" class="btn btn-default btn-block disabled">0</button>
+          </div>
+          <div class="col-xs-4">
+            <h6>-<span id="stoneStorageCostWood">0</span> Wood | -<span id="stoneStorageCostStone">0</span> Stone
+            </h6>
+            <h6>+100 Stone Storage</h6>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-4">
+            <button type="button" id="buildFoodStorage" class="btn btn-danger btn-block">Build Food Storage</button>
+          </div>
+          <div class="col-xs-4">
+            <button type="button" id="foodStorageAmount" class="btn btn-default btn-block disabled">0</button>
+          </div>
+          <div class="col-xs-4">
+            <h6>-<span id="foodStorageCostWood">0</span> Wood | -<span id="foodStorageCostStone">0</span> Stone</h6>
+            <h6>+100 Food Storage</h6>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div id="Workers" class="tabcontent">
     <div class="col-md-6">
 
       <div class="row">
@@ -135,228 +345,6 @@
       <hr>
 
     </div>
-    <!--.col-md-6-->
-  </div>
-
-  <div id="Upgrades" class="tabcontent">
-    <div class="col-md-6">
-
-      <div class="row upgradeTwoFingers">
-        <div class="col-xs-4">
-          <button type="button" id="upgradeTwoFingers" class="btn btn-warning btn-block">Two Fingers</button>
-        </div>
-        <div class="col-xs-8">
-          <h6>-100 Wood | -100 Stone | -100 Food</h6>
-          <h6>Two resources per click.</h6>
-        </div>
-      </div>
-      <!--.row-->
-
-      <div class="row upgradeFiveFingers hidden">
-        <div class="col-xs-4">
-          <button type="button" id="upgradeFiveFingers" class="btn btn-warning btn-block">Five Fingers</button>
-        </div>
-        <div class="col-xs-8">
-          <h6>-450 Wood | -450 Stone | -120 Food</h6>
-          <h6>Five resources per click.</h6>
-        </div>
-      </div>
-      <!--.row-->
-
-      <div class="row upgradeDoubleSleepingBags">
-        <div class="col-xs-4">
-          <button type="button" id="upgradeDoubleSleepingBags" class="btn btn-warning btn-block">Double Sleeping
-            Bags</button>
-        </div>
-        <div class="col-xs-8">
-          <h6>-100 Wood | -100 Stone | -100 Food</h6>
-          <h6>Allow two people to live in one tent.</h6>
-        </div>
-      </div>
-      <!--.row-->
-
-      <div class="row upgradeBunkBeds">
-        <div class="col-xs-4">
-          <button type="button" id="upgradeBunkBeds" class="btn btn-warning btn-block">Bunk Beds</button>
-        </div>
-        <div class="col-xs-8">
-          <h6>-100 Wood | -100 Stone | -100 Food</h6>
-          <h6>Allow five people to live in one house.</h6>
-        </div>
-      </div>
-      <!--.row-->
-
-      <div class="row upgradeSharpenAxes">
-        <div class="col-xs-4">
-          <button type="button" id="upgradeSharpenAxes" class="btn btn-warning btn-block">Sharpen Axes</button>
-        </div>
-        <div class="col-xs-8">
-          <h6>-50 Wood | -100 Stone | -50 Food</h6>
-          <h6>Lumberjacks gather two wood every five seconds.</h6>
-        </div>
-      </div>
-      <!--.row-->
-
-      <div class="row upgradeSharpenPicks">
-        <div class="col-xs-4">
-          <button type="button" id="upgradeSharpenPicks" class="btn btn-warning btn-block">Sharpen Picks</button>
-        </div>
-        <div class="col-xs-8">
-          <h6>-50 Wood | -100 Stone | -50 Food</h6>
-          <h6>Miners gather two stone every five seconds.</h6>
-        </div>
-      </div>
-      <!--.row-->
-
-      <div class="row upgradeSharpenArrows">
-        <div class="col-xs-4">
-          <button type="button" id="upgradeSharpenArrows" class="btn btn-warning btn-block">Sharpen Arrows</button>
-        </div>
-        <div class="col-xs-8">
-          <h6>-50 Wood | -100 Stone | -50 Food</h6>
-          <h6>Hunters gather two food every five seconds.</h6>
-        </div>
-      </div>
-      <!--.row-->
-
-      <div class="row upgradeMatesRatesWood">
-        <div class="col-xs-4">
-          <button type="button" id="upgradeMatesRatesWood" class="btn btn-warning btn-block">Mates Rates -
-            Wood</button>
-        </div>
-        <div class="col-xs-8">
-          <h6>-150 Stone | -50 Food</h6>
-          <h6>Befriend the lumberjacks so houses and tents cost less wood.</h6>
-        </div>
-      </div>
-      <!--.row-->
-
-      <div class="row upgradeMatesRatesStone">
-        <div class="col-xs-4">
-          <button type="button" id="upgradeMatesRatesStone" class="btn btn-warning btn-block">Mates Rates -
-            Stone</button>
-        </div>
-        <div class="col-xs-8">
-          <h6>-150 Wood | -50 Food</h6>
-          <h6>Befriend the miners so houses cost less stone.</h6>
-        </div>
-      </div>
-      <!--.row-->
-
-      <hr>
-    </div>
-  </div>
-
-  <div id="Extras" class="tabcontent">
-    <div class="row">
-      <div class="col-md-6">
-
-        <div class="row">
-          <div class="col-xs-4">
-            <button type="button" id="buildTent" class="btn btn-danger btn-block">Build Tent</button>
-          </div>
-
-          <div class="col-xs-4">
-            <button type="button" id="tentAmount" class="btn btn-default btn-block disabled">0</button>
-          </div>
-
-          <div class="col-xs-4">
-            <h6>-<span id="tentCostWood">0</span> Wood</h6>
-            <h6>+<span id="tentResidents">0</span> Population</h6>
-          </div>
-        </div>
-        <!--.row-->
-
-        <div class="row">
-          <div class="col-xs-4">
-            <button type="button" id="buildHouse" class="btn btn-danger btn-block">Build House</button>
-          </div>
-          <div class="col-xs-4">
-            <button type="button" id="houseAmount" class="btn btn-default btn-block disabled">0</button>
-          </div>
-          <div class="col-xs-4">
-            <h6>-<span id="houseCostWood">0</span> Wood | -<span id="houseCostStone">0</span> Stone</h6>
-            <h6>+<span id="houseResidents">0</span> Population</h6>
-          </div>
-        </div>
-        <!--.row-->
-
-        <div class="row">
-
-          <div class="col-xs-4">
-            <button id="researchHostel" class="btn btn-danger btn-block">Consider Building Hostels</button>
-            <div class="progress-wrap-hostel progress hidden" data-progress-percent-hostel="100">
-              <span class="researchingComment">Thinking About It</span>
-              <div class="progress-bar-hostel progress"></div>
-            </div>
-            <button id="buildHostel" class="btn btn-danger btn-block hidden">Build Hostel</button>
-          </div>
-
-          <div class="col-xs-4">
-            <button type="button" id="hostelAmount" class="btn btn-default btn-block disabled">0</button>
-          </div>
-          <div class="col-xs-4">
-            <h6 class="hostelInfo hidden">-<span id="hostelCostWood">0</span> Wood | -<span
-                id="hostelCostStone">0</span>
-              Stone</h6>
-            <h6 class="hostelResearchInfo">-400 Wood | -150 Stone</h6>
-            <h6>+<span id="hostelResidents">0</span> Population</h6>
-          </div>
-        </div>
-        <!--.row-->
-
-        <div class="row">
-          <div class="col-xs-4">
-            <button type="button" id="buildWoodStorage" class="btn btn-danger btn-block">Build Wood Storage</button>
-          </div>
-          <div class="col-xs-4">
-            <button type="button" id="woodStorageAmount" class="btn btn-default btn-block disabled">0</button>
-          </div>
-          <div class="col-xs-4">
-            <h6>-<span id="woodStorageCostWood">0</span> Wood | -<span id="woodStorageCostStone">0</span> Stone</h6>
-            <h6>+100 Wood Storage</h6>
-          </div>
-        </div>
-        <!--.row-->
-
-        <div class="row">
-          <div class="col-xs-4">
-            <button type="button" id="buildStoneStorage" class="btn btn-danger btn-block">Build Stone
-              Storage</button>
-          </div>
-          <div class="col-xs-4">
-            <button type="button" id="stoneStorageAmount" class="btn btn-default btn-block disabled">0</button>
-          </div>
-          <div class="col-xs-4">
-            <h6>-<span id="stoneStorageCostWood">0</span> Wood | -<span id="stoneStorageCostStone">0</span> Stone
-            </h6>
-            <h6>+100 Stone Storage</h6>
-          </div>
-        </div>
-        <!--.row-->
-
-        <div class="row">
-          <div class="col-xs-4">
-            <button type="button" id="buildFoodStorage" class="btn btn-danger btn-block">Build Food Storage</button>
-          </div>
-          <div class="col-xs-4">
-            <button type="button" id="foodStorageAmount" class="btn btn-default btn-block disabled">0</button>
-          </div>
-          <div class="col-xs-4">
-            <h6>-<span id="foodStorageCostWood">0</span> Wood | -<span id="foodStorageCostStone">0</span> Stone</h6>
-            <h6>+100 Food Storage</h6>
-          </div>
-        </div>
-        <!--.row-->
-
-        <hr>
-      </div>
-      <!--.col-md-6-->
-    </div>
-    <!--.row-->
-
-  </div>
-  <!--.row-->
   </div>
 
   <script>

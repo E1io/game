@@ -15,11 +15,20 @@
     <div class="tab">
         <button class="tablinks" onclick="openCity(event, 'Resources')">Resources</button>
         <button class="tablinks" onclick="openCity(event, 'Upgrades')">Upgrades</button>
-        <button class="tablinks" onclick="openCity(event, 'Extras')">Extras</button>
+        <button class="tablinks" onclick="openCity(event, 'Housing')">Housing</button>
+        <button class="tablinks" onclick="openCity(event, 'Workers')">Workers</button>
+        <button class="tablinks" onclick="openCity(event, 'Settings')">Settings</button>
     </div>
 
     <br>
-
+    <div id="Settings" class="tabcontent">
+        <button type="button" onclick="save()">
+            Manually save the game (autosaves every 20 seconds or after you do something important)
+        </button>
+        <button type="button" onclick="wipe(true)">
+            Delete save file and hard reset (Don't press this!)
+        </button>
+    </div>
     <div id="Resources" class="tabcontent">
         <div class="row">
             <div class="col-xs-4">
@@ -69,73 +78,6 @@
             </div>
         </div>
 
-        <br>
-        <br>
-
-        <div class="col-md-6">
-                
-            <div class="row">
-                <div class="col-xs-6">
-                    <div class="btn-group btn-group-justified">
-                        <span class="btn btn-default disabled">Population</span>
-                        <span id="workerAmount" class="btn btn-default disabled">0</span>
-                    </div>
-                </div>
-                <div class="col-xs-6">
-                    <div class="btn-group btn-group-justified">
-                        <span class="btn btn-default disabled">Max</span>
-                        <span id="maxPop" class="btn btn-default disabled">0</span>
-                    </div>
-                </div>
-            </div>
-            <!--.row-->
-                
-            <div class="row">
-                <div class="col-xs-4">
-                    <button type="button" id="createLumberjack" class="btn btn-block btn-success">Create Lumberjack</button>
-                </div>
-                <div class="col-xs-4">
-                    <button type="button" id="lumberjackAmount" class="btn btn-block btn-default disabled">0</button>
-                </div>
-                <div class="col-xs-4">
-                    <h6>-<span id="lumberjackCost">10</span> Food</h6>
-                    <h6>+1 Lumberjack</h6>
-                </div>
-            </div>
-            <!--.row-->
-                
-            <div class="row">
-                <div class="col-xs-4">
-                    <button type="button" id="createMiner" class="btn btn-block btn-success">Create Miner</button>
-                </div>
-                <div class="col-xs-4">
-                    <button type="button" id="minerAmount" class="btn btn-block btn-default disabled">0</button>
-                </div>
-                <div class="col-xs-4">
-                    <h6>-<span id="minerCost">10</span> Food</h6>
-                    <h6>+1 Miner</h6>
-                </div>
-            </div>
-            <!--.row-->
-                
-            <div class="row">
-                <div class="col-xs-4">
-                    <button type="button" id="createHunter" class="btn btn-block btn-success">Create Hunter</button>
-                </div>
-                <div class="col-xs-4">
-                    <button type="button" id="hunterAmount" class="btn btn-block btn-default disabled">0</button>
-                </div>
-                <div class="col-xs-4">
-                    <h6>-<span id="hunterCost">10</span> Food</h6>
-                    <h6>+1 Hunter</h6>
-                </div>
-            </div>
-            <!--.row-->
-                
-            <hr>
-                
-        </div>
-        <!--.col-md-6-->
     </div>
 
     <div id="Upgrades" class="tabcontent">
@@ -173,7 +115,6 @@
                     <h6>Allow two people to live in one tent.</h6>
                 </div>
             </div>
-            <!--.row-->
         
             <div class="row upgradeBunkBeds">
                 <div class="col-xs-4">
@@ -184,7 +125,6 @@
                     <h6>Allow five people to live in one house.</h6>
                 </div>
             </div>
-            <!--.row-->
         
             <div class="row upgradeSharpenAxes">
                 <div class="col-xs-4">
@@ -195,7 +135,6 @@
                     <h6>Lumberjacks gather two wood every five seconds.</h6>
                 </div>
             </div>
-            <!--.row-->
         
             <div class="row upgradeSharpenPicks">
                 <div class="col-xs-4">
@@ -206,7 +145,6 @@
                     <h6>Miners gather two stone every five seconds.</h6>
                 </div>
             </div>
-            <!--.row-->
         
             <div class="row upgradeSharpenArrows">
                 <div class="col-xs-4">
@@ -217,7 +155,6 @@
                     <h6>Hunters gather two food every five seconds.</h6>
                 </div>
             </div>
-            <!--.row-->
         
             <div class="row upgradeMatesRatesWood">
                 <div class="col-xs-4">
@@ -229,7 +166,6 @@
                     <h6>Befriend the lumberjacks so houses and tents cost less wood.</h6>
                 </div>
             </div>
-            <!--.row-->
         
             <div class="row upgradeMatesRatesStone">
                 <div class="col-xs-4">
@@ -241,13 +177,12 @@
                     <h6>Befriend the miners so houses cost less stone.</h6>
                 </div>
             </div>
-            <!--.row-->
         
             <hr>
         </div>
     </div>
 
-    <div id="Extras" class="tabcontent">
+    <div id="Housing" class="tabcontent">
         <div class="row">
             <div class="col-md-6">
         
@@ -265,7 +200,6 @@
                         <h6>+<span id="tentResidents">0</span> Population</h6>
                     </div>
                 </div>
-                <!--.row-->
         
                 <div class="row">
                     <div class="col-xs-4">
@@ -279,7 +213,6 @@
                         <h6>+<span id="houseResidents">0</span> Population</h6>
                     </div>
                 </div>
-                <!--.row-->
         
                 <div class="row">
         
@@ -303,7 +236,6 @@
                         <h6>+<span id="hostelResidents">0</span> Population</h6>
                     </div>
                 </div>
-                <!--.row-->
         
                 <div class="row">
                     <div class="col-xs-4">
@@ -317,7 +249,6 @@
                         <h6>+100 Wood Storage</h6>
                     </div>
                 </div>
-                <!--.row-->
         
                 <div class="row">
                     <div class="col-xs-4">
@@ -333,7 +264,6 @@
                         <h6>+100 Stone Storage</h6>
                     </div>
                 </div>
-                <!--.row-->
         
                 <div class="row">
                     <div class="col-xs-4">
@@ -346,17 +276,77 @@
                         <h6>-<span id="foodStorageCostWood">0</span> Wood | -<span id="foodStorageCostStone">0</span> Stone</h6>
                         <h6>+100 Food Storage</h6>
                     </div>
-                </div>
-                <!--.row-->
-        
+                </div>        
                 <hr>
             </div>
-            <!--.col-md-6-->
         </div>
-        <!--.row-->
+        </div>
+    </div>
+
+    <div id="Workers" class="tabcontent">
+        <div class="col-md-6">
+        
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="btn-group btn-group-justified">
+                        <span class="btn btn-default disabled">Population</span>
+                        <span id="workerAmount" class="btn btn-default disabled">0</span>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="btn-group btn-group-justified">
+                        <span class="btn btn-default disabled">Max</span>
+                        <span id="maxPop" class="btn btn-default disabled">0</span>
+                    </div>
+                </div>
+            </div>
+            <!--.row-->
+        
+            <div class="row">
+                <div class="col-xs-4">
+                    <button type="button" id="createLumberjack" class="btn btn-block btn-success">Create Lumberjack</button>
+                </div>
+                <div class="col-xs-4">
+                    <button type="button" id="lumberjackAmount" class="btn btn-block btn-default disabled">0</button>
+                </div>
+                <div class="col-xs-4">
+                    <h6>-<span id="lumberjackCost">10</span> Food</h6>
+                    <h6>+1 Lumberjack</h6>
+                </div>
+            </div>
+            <!--.row-->
+        
+            <div class="row">
+                <div class="col-xs-4">
+                    <button type="button" id="createMiner" class="btn btn-block btn-success">Create Miner</button>
+                </div>
+                <div class="col-xs-4">
+                    <button type="button" id="minerAmount" class="btn btn-block btn-default disabled">0</button>
+                </div>
+                <div class="col-xs-4">
+                    <h6>-<span id="minerCost">10</span> Food</h6>
+                    <h6>+1 Miner</h6>
+                </div>
+            </div>
+            <!--.row-->
+        
+            <div class="row">
+                <div class="col-xs-4">
+                    <button type="button" id="createHunter" class="btn btn-block btn-success">Create Hunter</button>
+                </div>
+                <div class="col-xs-4">
+                    <button type="button" id="hunterAmount" class="btn btn-block btn-default disabled">0</button>
+                </div>
+                <div class="col-xs-4">
+                    <h6>-<span id="hunterCost">10</span> Food</h6>
+                    <h6>+1 Hunter</h6>
+                </div>
+            </div>
+            <!--.row-->
+        
+            <hr>
         
         </div>
-        <!--.row-->
     </div>
 
     <script>

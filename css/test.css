@@ -6,12 +6,12 @@ body {
 .tab {
     overflow: hidden;
     border: 1px solid rgb(0, 0, 0);
-    background-color: #fe5454;
+    background-color: #085a01;
 }
 
 /* Style the buttons inside the tab */
 .tab button {
-    background-color: inherit;
+    background-color: #fe5454;
     float: left;
     border: none;
     outline: none;
